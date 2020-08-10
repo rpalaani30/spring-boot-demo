@@ -1,7 +1,7 @@
 node {
    def mvnHome
    stage('Prepare') {
-      git 'https://github.com/cicdTrainer/spring-boot-demo.git'
+      git 'https://github.com/rpalaani30/spring-boot-demo.git'
       mvnHome = tool 'maven'
    }
    stage('Compile') {
