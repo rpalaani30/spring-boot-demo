@@ -43,13 +43,7 @@ node {
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean deploy/)
       }
    }
-      stage('Push the Artifacts to Nexus/Jfrog') {
-      if (isUnix()) {
-         sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean deploy"
-      } else {
-         bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean deploy/)
-      }
-   }
+     
    stage('Deploy') {
        sh 'curl -u admin:admin -T target/**.war "http://127.0.0.1:7080/manager/text/deploy?path=/web-demo&update=true"'
    }
